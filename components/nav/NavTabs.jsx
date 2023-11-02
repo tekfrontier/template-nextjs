@@ -3,7 +3,7 @@
 import { Tab, Tabs } from "@/node_modules/@mui/material/index";
 import { useState } from "react";
 
-export default function Navbar(props) {
+export default function NavTabs(props) {
 	const [value, setValue] = useState(0);
 
 	const handleChange = (event, newValue) => {

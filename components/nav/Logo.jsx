@@ -1,19 +1,19 @@
 "use client";
 
+import logo_dark from '@/public/logo_dark.svg';
+import logo_light from '@/public/logo_light.svg';
+import { useColorScheme } from '@mui/material/styles';
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from 'next-themes'
-import logo_light from '@/public/logo_light.svg'
-import logo_dark from '@/public/logo_dark.svg'
 
 
 export default function Logo() {
-	const { theme, setTheme } = useTheme()
+	const { mode, setMode } = useColorScheme();
 	return (
 		<Link
 			href="/"
 		>
-			<Image src={theme === "dark" ? logo_dark : logo_light} alt="logo" width={54} height={54} />
+			<Image src={mode === "dark" ? logo_dark : logo_light} alt="logo" width={54} height={54} />
 		</Link>
 	);
 }

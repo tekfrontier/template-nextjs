@@ -2,13 +2,13 @@ import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/components/i18n/TranslationProvider";
 import Navbar from "@/components/nav/Navbar";
 import ThemeProvider from "@/components/themes/ThemeProvider";
-import { CssBaseline } from "@/node_modules/@mui/material/index";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Box } from "@/node_modules/@mui/material/index";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { Inter } from "next/font/google";
+import "./globals.css";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,19 +22,18 @@ export default async function RootLayout({ children, params: { locale } }) {
 	const { options } = await initTranslations(locale, ["default"]);
 
 	return (
-		<>
-			<CssBaseline />
+		<ThemeProvider>
 			<html lang="en" suppressHydrationWarning>
 				<head />
 				<body>
-					<ThemeProvider>
-						<TranslationsProvider namespaces={options.ns || "default"} locale={locale}>
-							<Navbar locale={locale} />
+					<TranslationsProvider namespaces={options.ns || "default"} locale={locale}>
+						<Navbar locale={locale} />
+						<Box component="main">
 							{children}
-						</TranslationsProvider>
-					</ThemeProvider>
+						</Box>
+					</TranslationsProvider>
 				</body>
 			</html>
-		</>
+		</ThemeProvider>
 	);
 }

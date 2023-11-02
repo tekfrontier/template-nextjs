@@ -1,12 +1,11 @@
-"use client";
+import { CssBaseline } from '@/node_modules/@mui/material/index';
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 
-import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-
-export default function ThemeProvider({ children, themeProps }) {
+export default function ThemeProvider({ children }) {
 	return (
-		<NextUIProvider>
-			<NextThemesProvider attribute="class" defaultTheme="dark" {...themeProps}>{children}</NextThemesProvider>
-		</NextUIProvider>
+		<CssVarsProvider defaultMode="system">
+			<CssBaseline />
+			{children}
+		</CssVarsProvider>
 	);
 }
