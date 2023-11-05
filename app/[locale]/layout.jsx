@@ -1,17 +1,14 @@
-import initTranslations from "@/app/i18n";
-import TranslationsProvider from "@/components/i18n/TranslationProvider";
-import Navbar from "@/components/nav/Navbar";
-import ThemeProvider from "@/components/themes/ThemeProvider";
-import { Box } from "@/node_modules/@mui/material/index";
+import TranslationsProvider from "@/features/i18n/TranslationProvider";
+import initTranslations from "@/features/i18n/i18n";
+import Navbar from "@/features/shared/components/nav/Navbar";
+import ThemeProvider from "@/features/themes/ThemeProvider";
+import { Box, CssBaseline } from "@/node_modules/@mui/material/index";
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { Inter } from "next/font/google";
 import "./globals.css";
-
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Template App",
@@ -23,6 +20,7 @@ export default async function RootLayout({ children, params: { locale } }) {
 
 	return (
 		<ThemeProvider>
+			<CssBaseline />
 			<html lang="en" suppressHydrationWarning>
 				<head />
 				<body>

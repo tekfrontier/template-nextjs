@@ -1,6 +1,6 @@
 "use client";
 
-import i18nConfig from '@/i18nConfig';
+import i18nConfig from '@/features/i18n/i18nConfig';
 import { Button, Menu, MenuItem } from '@/node_modules/@mui/material/index';
 import TranslateIcon from '@mui/icons-material/Translate';
 import { usePathname, useRouter } from "next/navigation";

@@ -1,6 +1,6 @@
 "use client";
 
-import initTranslations from "@/app/i18n";
+import initTranslations from "@/features/i18n/i18n";
 import { useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
 

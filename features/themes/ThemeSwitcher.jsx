@@ -1,14 +1,12 @@
 "use client";
 
-import { useTranslation } from 'react-i18next';
+import CircleIcon from '@mui/icons-material/Circle';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import IconButton from '@mui/material/IconButton';
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
-import { Button, Skeleton } from "@/node_modules/@mui/material/index";
 import { useColorScheme } from '@mui/material/styles';
-import CircleIcon from '@mui/icons-material/Circle';
+import { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function ThemeSwitcher() {
 	const [mounted, setMounted] = useState(false);

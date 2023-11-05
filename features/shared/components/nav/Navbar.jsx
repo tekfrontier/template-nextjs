@@ -1,15 +1,15 @@
-import initTranslations from "@/app/i18n";
+import initTranslations from "@/features/i18n/i18n";
 import { AppBar, Box, Stack, Toolbar, Typography } from "@/node_modules/@mui/material/index";
+import LanguageChanger from "../../../i18n/LanguageChanger";
+import ThemeSwitcher from "../../../themes/ThemeSwitcher";
 import Logo from "./Logo";
 import NavTabs from "./NavTabs";
-import LanguageChanger from "../i18n/LanguageChanger";
-import ThemeSwitcher from "../themes/ThemeSwitcher";
 
 export default async function Navbar({ locale }) {
 	const { t, options } = await initTranslations(locale, ["default"]);
 
 	return (
-		<AppBar position="static">
+		<AppBar position="static" color="primary" enableColorOnDark>
 			<Toolbar>
 				<Box sx={{ display: "flex", width: "100%" }}>
 					<Box sx={{ display: "flex", alignItems: "center", flex: 1 }}>

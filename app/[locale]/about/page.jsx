@@ -1,4 +1,4 @@
-import initTranslations from "@/app/i18n";
+import initTranslations from "@/features/i18n/i18n";
 
 export default async function About({ params: { locale } }) {
 	const { t, options } = await initTranslations(locale, ["about"]);
