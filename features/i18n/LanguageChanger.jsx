@@ -46,7 +46,7 @@ export default function LanguageChanger({ locale }) {
 				size="small"
 				variant="contained"
 				onClick={handleClickMenu}
-				aria-label="TODO: change me"
+				aria-label={locale}
 			>
 				{locale}
 			</Button>

@@ -7,7 +7,6 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Inter } from "next/font/google";
 import "./globals.css";
 
 export const metadata = {
@@ -16,7 +15,13 @@ export const metadata = {
 		default: "Template App - Home",
 	},
 	description: "The template app home page",
+	manifest: "./manifest.json",
+	icons: "./icon512_maskable.png",
 };
+
+export const viewport = {
+	themeColor: "#fed000",
+}
 
 export default async function RootLayout({ children, params: { locale } }) {
 	const { options } = await initTranslations(locale, ["default"]);
