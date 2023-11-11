@@ -8,7 +8,7 @@ import { useColorScheme } from '@mui/material/styles';
 import { useEffect, useState } from "react";
 import { useTranslation } from 'react-i18next';
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher(props) {
 	const [mounted, setMounted] = useState(false);
 	const { mode, setMode } = useColorScheme();
 	const { t } = useTranslation();
@@ -29,7 +29,7 @@ export default function ThemeSwitcher() {
 	}
 
 	return (
-		<IconButton aria-label={t("aria_change_theme")} onClick={handleClick}>
+		<IconButton aria-label={t("aria_change_theme")} onClick={handleClick} {...props}>
 			{getIcon()}
 		</IconButton>
 	);

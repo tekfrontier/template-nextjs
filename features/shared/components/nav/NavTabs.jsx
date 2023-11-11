@@ -31,7 +31,7 @@ export default function NavTabs({ locale, children, ...props }) {
 	};
 
 	useMemo(() => {
-		const activeTab = navLinks.findIndex((navLink) => navLink.href === pathName);
+		const activeTab = Math.max(navLinks.findIndex((navLink) => navLink.href === pathName), 0);
 		setValue(activeTab);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [pathName]);

@@ -1,12 +1,12 @@
 "use client";
 
 import i18nConfig from '@/features/i18n/i18nConfig';
-import { Button, Menu, MenuItem } from '@/node_modules/@mui/material/index';
+import { Box, Button, Menu, MenuItem } from '@/node_modules/@mui/material/index';
 import TranslateIcon from '@mui/icons-material/Translate';
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
-export default function LanguageChanger({ locale }) {
+export default function LanguageChanger({ locale, ...props }) {
 
 	const router = useRouter();
 	const currentPathname = usePathname();
@@ -40,7 +40,7 @@ export default function LanguageChanger({ locale }) {
 	};
 
 	return (
-		<div>
+		<Box {...props}>
 			<Button
 				startIcon={<TranslateIcon />}
 				size="small"
@@ -69,6 +69,6 @@ export default function LanguageChanger({ locale }) {
 					</MenuItem>
 				))}
 			</Menu>
-		</div>
+		</Box>
 	);
 }
