@@ -1,20 +1,47 @@
 "use client"
 
 import { Tab, Tabs } from "@/node_modules/@mui/material/index";
-import { useState } from "react";
+import { usePathname, useRouter } from "@/node_modules/next/navigation";
+import { useMemo, useState } from "react";
 
-export default function NavTabs(props) {
+export default function NavTabs({ locale, children, ...props }) {
 	const [value, setValue] = useState(0);
+	const router = useRouter();
+	const pathName = usePathname();
+	const navLinks = [
+		{
+			value: 0,
+			label: "Home",
+			href: `/${locale}`,
+		},
+		{
+			value: 1,
+			label: "About",
+			href: `/${locale}/about`,
+		},
+	];
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
+	const handleClick = (href) => (event) => {
+		router.push(href);
+		router.refresh();
+	};
+
+	useMemo(() => {
+		const activeTab = navLinks.findIndex((navLink) => navLink.href === pathName);
+		setValue(activeTab);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [pathName]);
+
+
 	return (
 		<Tabs value={value} onChange={handleChange} centered {...props} >
-			<Tab label="Item One" />
-			<Tab label="Item Two" />
-			<Tab label="Item Three" />
+			{navLinks.map((navLink) => (
+				<Tab key={navLink.label} label={navLink.label} onClick={handleClick(navLink.href)} />
+			))}
 		</Tabs>
 	);
 }

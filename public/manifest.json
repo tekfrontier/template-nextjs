@@ -11,7 +11,8 @@
 	"lang": "en-US",
 	"name": "My Template App",
 	"short_name": "Template App",
-	"start_url": "http://localhost:3000/",
 	"description": "This is a template website",
-	"id": "53f8e14d-c99d-4509-ad11-a4ac7337f56c"
+	"id": "53f8e14d-c99d-4509-ad11-a4ac7337f56c",
+	"start_url": "http://localhost:3000/",
+	"scope": "http://localhost:3000/"
 }
