@@ -20,7 +20,7 @@ export const metadata = {
 };
 
 export const viewport = {
-	themeColor: "#fed000",
+	themeColor: "#56565a",
 }
 
 export default async function RootLayout({ children, params: { locale } }) {

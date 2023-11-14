@@ -14,15 +14,21 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 in VSCode you can run the `Next.js: debug client` launch config
 
-## Features
+### Todo List
 
-* [i18n](./features/i18n/README.md)
-* [Theming](./features/themes/README.md)
+After copying/cloning this repo, you should do the following:
+
+- Run `pnpm i` to install dependencies
+- follow instructions in [i18n readme](./features/i18n/README.md)
+  - edit existing translations in [locales](./locales) and by searching globally for "`t(`" in the project
+- follow instructions in the [theming readme](./features/themes/README.md)
+- edit the metadata in [layout.jsx](./app/[locale]/layout.jsx) and each `page.jsx` file
+- follow the directions in the [spoofing readme](./spoofing/README.md) to set up local https and domain spoofing
 
 ## Learn More
 
-* [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-* [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 ## Deploy on Vercel
 
