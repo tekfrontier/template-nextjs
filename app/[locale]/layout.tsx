@@ -3,10 +3,10 @@ import initTranslations from "@/features/i18n/i18n";
 import Navbar from "@/features/shared/components/nav/Navbar";
 import ThemeProvider from "@/features/themes/ThemeProvider";
 import { Box, CssBaseline } from "@/node_modules/@mui/material/index";
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
 import "./globals.css";
 
 export const metadata = {
@@ -21,9 +21,16 @@ export const metadata = {
 
 export const viewport = {
 	themeColor: "#56565a",
+};
+
+interface Props {
+	children: React.ReactNode;
+	params: {
+		locale: string;
+	};
 }
 
-export default async function RootLayout({ children, params: { locale } }) {
+export default async function RootLayout({ children, params: { locale } }: Props) {
 	const { options } = await initTranslations(locale, ["default"]);
 
 	return (
@@ -34,9 +41,7 @@ export default async function RootLayout({ children, params: { locale } }) {
 				<body>
 					<TranslationsProvider namespaces={options.ns || "default"} locale={locale}>
 						<Navbar locale={locale} />
-						<Box component="main">
-							{children}
-						</Box>
+						<Box component="main">{children}</Box>
 					</TranslationsProvider>
 				</body>
 			</html>

@@ -1,35 +1,38 @@
 "use client";
 
-import i18nConfig from '@/features/i18n/i18nConfig';
-import { Box, Button, Menu, MenuItem } from '@/node_modules/@mui/material/index';
-import TranslateIcon from '@mui/icons-material/Translate';
+import { Box, BoxProps, Button, Menu, MenuItem } from "@/node_modules/@mui/material/index";
+import TranslateIcon from "@mui/icons-material/Translate";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
+import i18nConfig from "./i18nConfig";
 
-export default function LanguageChanger({ locale, ...props }) {
+interface Props extends BoxProps {
+	locale: string;
+}
 
+export default function LanguageChanger({ locale, ...props }: Props) {
 	const router = useRouter();
 	const currentPathname = usePathname();
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const open = Boolean(anchorEl);
 
-	const setLocaleCookie = (locale) => {
+	const setLocaleCookie = (locale: string) => {
 		const days = 30;
 		const date = new Date();
 		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
 		document.cookie = `NEXT_LOCALE=${locale};expires=${date.toUTCString()};path=/`;
 	};
 
-	const redirectToLocale = (locale, newLocale) => {
+	const redirectToLocale = (locale: string, newLocale: string) => {
 		if (locale !== newLocale) router.push(currentPathname.replace(`/${locale}`, `/${newLocale}`));
 		router.refresh();
 	};
 
-	const handleClickMenu = (event) => {
+	const handleClickMenu = (event: any) => {
 		setAnchorEl(event.currentTarget);
 	};
 
-	const handleMenuItemClick = (event, newLocale) => {
+	const handleMenuItemClick = (event: any, newLocale: any) => {
 		setAnchorEl(null);
 		setLocaleCookie(newLocale);
 		redirectToLocale(locale, newLocale);
@@ -55,8 +58,8 @@ export default function LanguageChanger({ locale, ...props }) {
 				open={open}
 				onClose={handleClose}
 				MenuListProps={{
-					'aria-labelledby': 'lock-button',
-					role: 'listbox',
+					"aria-labelledby": "lock-button",
+					role: "listbox",
 				}}
 			>
 				{i18nConfig.locales.map((localeItem, index) => (

@@ -4,9 +4,15 @@ import initTranslations from "@/features/i18n/i18n";
 import { useEffect, useState } from "react";
 import { I18nextProvider } from "react-i18next";
 
-let i18n;
+let i18n: any;
 
-export default function TranslationsProvider({ children, locale, namespaces }) {
+interface Props {
+	children: any;
+	locale: string;
+	namespaces: string[];
+}
+
+export default function TranslationsProvider({ children, locale, namespaces }: Props) {
 	const [instance, setInstance] = useState(i18n);
 
 	useEffect(() => {

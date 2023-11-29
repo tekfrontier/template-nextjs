@@ -5,4 +5,4 @@ const i18nConfig = {
 	routingStrategy: "dynamicSegment",
 };
 
-module.exports = i18nConfig;
+export default i18nConfig;

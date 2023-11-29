@@ -1,14 +1,14 @@
-import i18nConfig from "@/features/i18n/i18nConfig";
+import i18nConfig from "./i18nConfig";
 import { createInstance } from "i18next";
 import resourcesToBackend from "i18next-resources-to-backend";
 import { initReactI18next } from "react-i18next/initReactI18next";
 
-export default async function initTranslations(locale, namespaces) {
+export default async function initTranslations(locale: string, namespaces: any[]) {
 	const i18nInstance = createInstance();
 
 	await i18nInstance
 		.use(initReactI18next)
-		.use(resourcesToBackend((language, namespace) => import(`@/locales/${language}/${namespace}.json`)))
+		.use(resourcesToBackend((language: any, namespace: any) => import(`@/locales/${language}/${namespace}.json`)))
 		.init({
 			lng: locale,
 			fallbackLng: i18nConfig.defaultLocale,

@@ -5,7 +5,13 @@ export const metadata = {
 	description: "The template app about page",
 };
 
-export default async function About({ params: { locale } }) {
+interface Props {
+	params: {
+		locale: string;
+	};
+}
+
+export default async function About({ params: { locale } }: Props) {
 	const { t, options } = await initTranslations(locale, ["about"]);
 	return (
 		<>
